@@ -1,19 +1,38 @@
 {
   "products": [
     {
-      "name": "feature-flag-service-lite",
-      "label": "Feature Flag Service (Lite)",
+      "name": "feature-flag-control-center-lite",
+      "label": "Feature Flag Control Center (Lite Plan)",
       "product_kind": "solution",
       "provider_name": "Community",
       "tags": [
         "lite",
         "free",
-        "terraform",
         "devops",
-        "feature-flags"
+        "feature-flags",
+        "pm",
+        "agile"
       ],
-      "short_description": "Deploys a single, free 'Lite' plan instance of the IBM Cloud App Configuration service for feature flags.",
-      "long_description": "This deployable architecture provisions one instance of the App Configuration service on the 'Lite' plan. This service provides a full UI and SDKs (similar to LaunchDarkly) for managing feature flags, user segmentation, and controlled rollouts for your applications.",
+      "short_description": "Your team's \"on-off switch\" for new features. Safely test, launch, and manage features in real-time, no code deployments needed.",
+      "long_description": "Want to launch new features faster, but worried about the risk? This deployable architecture gives you the power of **progressive delivery**. It deploys a free instance of the IBM Cloud App Configuration service, which provides a powerful dashboard for managing your application's features in real-time—**without needing a new code deployment for every change.**\n\nAs a Product Manager, this gives you direct control. This DA deploys the **free \"Lite\" plan** of the service. It's perfect for development, testing, internal applications, or getting started with feature flags at no cost.",
+      "features": [
+        {
+          "title": "Centralized PM Dashboard",
+          "description": "A simple, web-based UI for you to manage all your features. No code required for you to make a change."
+        },
+        {
+          "title": "Controlled Rollouts",
+          "description": "Safely test new features with a small percentage of users (e.g., \"roll out to 5% of users\") before a full launch."
+        },
+        {
+          "title": "User Segmentation",
+          "description": "Create custom segments (like \"beta-testers\" or \"internal-employees\") and show features only to them."
+        },
+        {
+          "title": "Instant 'Kill Switch'",
+          "description": "Instantly turn off a problematic feature without waiting for a developer or a hotfix."
+        }
+      ],
       "flavors": [
         {
           "name": "default",
@@ -24,22 +43,42 @@
             "configuration": [
               {
                 "key": "service_name",
+                "label": "Service Name (for your dashboard)",
                 "type": "string",
                 "default_value": "my-feature-flag-service",
-                "description": "A unique name for your App Configuration service instance.",
+                "description": "Give it a name related to your team or product, like 'checkout-pm-controls'.",
                 "required": true
               },
               {
                 "key": "region",
+                "label": "Region (Deployment Location)",
                 "type": "string",
                 "default_value": "us-south",
-                "description": "The IBM Cloud region to deploy to."
+                "description": "Leave this as the default ('us-south') unless your development team tells you otherwise."
               },
               {
                 "key": "resource_group_name",
+                "label": "Resource Group (Account Folder)",
                 "type": "string",
                 "default_value": "Default",
-                "description": "The name of an existing resource group."
+                "description": "You can safely leave this as 'Default'."
+              }
+            ],
+            "outputs": [
+              {
+                "key": "app_config_region",
+                "label": "1. Developer Key: Region",
+                "description": "✅ **Send this to your developer.** This is the 'address' of the service."
+              },
+              {
+                "key": "app_config_guid",
+                "label": "2. Developer Key: GUID",
+                "description": "✅ **Send this to your developer.** This is the unique 'password' for the service."
+              },
+              {
+                "key": "app_config_instance_name",
+                "label": "Your Dashboard Name (for reference)",
+                "description": "This is just for you. It's the name you chose, to help you find it in your resource list."
               }
             ]
           }
