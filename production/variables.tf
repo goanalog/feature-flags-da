@@ -13,5 +13,4 @@ variable "region" {
 variable "service_name" {
   type        = string
   description = "A unique name for your App Configuration service instance."
-  default     = "my-feature-flag-service"
 }
