@@ -39,7 +39,7 @@
           "name": "quickstart-free",
           "label": "Quickstart (free!)",
           "version": "1.0.0",
-          "working_directory": "flavor-quickstart",
+          "working_directory": "quickstart",
           "long_description": "A 100% free 'Lite' plan. Perfect for development, testing, and internal applications. Not intended for production use.",
           "architecture": {
             "provision_type": "terraform_v1",
@@ -97,7 +97,7 @@
           "name": "production-standard",
           "label": "Production",
           "version": "1.0.0",
-          "working_directory": "flavor-production",
+          "working_directory": "production",
           "long_description": "The paid 'Standard' plan for production apps. Enables a high volume of users, advanced features, and is fully supported. **This plan has a cost.**",
           "architecture": {
             "provision_type": "terraform_v1",
