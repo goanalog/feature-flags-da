@@ -2,20 +2,25 @@
   "products": [
     {
       "name": "feature-flag-control-center-lite",
-      "label": "Feature Flag Control Center (Lite Plan)",
+      "label": "Feature Flag Control Center",
       "product_kind": "solution",
       "provider_name": "Community",
       "tags": [
         "lite",
         "free",
+        "no-cost",
         "devops",
         "feature-flags",
         "pm",
         "agile"
       ],
-      "short_description": "Your team's \"on-off switch\" for new features. Safely test, launch, and manage features in real-time, no code deployments needed.",
-      "long_description": "Want to launch new features faster, but worried about the risk? This deployable architecture gives you the power of **progressive delivery**. It deploys a free instance of the IBM Cloud App Configuration service, which provides a powerful dashboard for managing your application's features in real-time—**without needing a new code deployment for every change.**\n\nAs a Product Manager, this gives you direct control. This DA deploys the **free \"Lite\" plan** of the service. It's perfect for development, testing, internal applications, or getting started with feature flags at no cost.",
+      "short_description": "Your team's *free* \"on-off switch\" for new features. Safely test, launch, and manage features in real-time on the free 'Lite' plan.",
+      "long_description": "Want to launch new features faster, but worried about the risk? This deployable architecture gives you the power of **progressive delivery** at **no cost**. It deploys a **free 'Lite' plan** instance of the IBM Cloud App Configuration service, which provides a powerful dashboard for managing your application's features in real-time—**without needing a new code deployment for every change.**\n\nAs a Product Manager, this gives you direct control. This DA deploys the **free \"Lite\" plan** of the service. It's perfect for development, testing, internal applications, or getting started with feature flags at **no cost**.",
       "features": [
+        {
+          "title": "✅ No-Cost 'Lite' Plan",
+          "description": "This architecture deploys the 'Lite' plan, which is completely free. Perfect for dev/test, learning, and internal apps."
+        },
         {
           "title": "Centralized PM Dashboard",
           "description": "A simple, web-based UI for you to manage all your features. No code required for you to make a change."
@@ -23,10 +28,6 @@
         {
           "title": "Controlled Rollouts",
           "description": "Safely test new features with a small percentage of users (e.g., \"roll out to 5% of users\") before a full launch."
-        },
-        {
-          "title": "User Segmentation",
-          "description": "Create custom segments (like \"beta-testers\" or \"internal-employees\") and show features only to them."
         },
         {
           "title": "Instant 'Kill Switch'",
@@ -66,14 +67,21 @@
             ],
             "outputs": [
               {
+                "key": "dashboard_url",
+                "label": "Clickable: Your Feature Flag Dashboard",
+                "description": "➡️ **Click this link.** This is your new dashboard to create and manage flags.",
+                "type": "url",
+                "primary": true
+              },
+              {
                 "key": "app_config_region",
-                "label": "1. Developer Key: Region",
-                "description": "✅ **Send this to your developer.** This is the 'address' of the service."
+                "label": "Developer Key: Region",
+                "description": "✅ **Copy this for your developer.** This is the 'address' of the service."
               },
               {
                 "key": "app_config_guid",
-                "label": "2. Developer Key: GUID",
-                "description": "✅ **Send this to your developer.** This is the unique 'password' for the service."
+                "label": "Developer Key: GUID",
+                "description": "✅ **Copy this for your developer.** This is the unique 'password' for the service."
               },
               {
                 "key": "app_config_instance_name",

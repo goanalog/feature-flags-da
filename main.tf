@@ -1,32 +1,24 @@
-# Configure the IBM Cloud Provider
-terraform {
-  required_providers {
-    ibm = {
-      source  = "IBM-Cloud/ibm"
-      version = ">= 1.60"
-    }
-  }
+output "dashboard_url" {
+  description = "Click this link to go directly to your new Feature Flag dashboard."
+  value = format(
+    "https://cloud.ibm.com/services/app-configuration/%s?region=%s",
+    module.app_config.app_config_guid,
+    var.region
+  )
 }
 
-provider "ibm" {
-  # The API key is automatically injected by the IBM Cloud DA service.
-  # We only need to set the region from the user's input.
-  region = var.region
+output "app_config_instance_name" {
+  description = "The name of the deployed App Configuration service."
+  value       = var.service_name
 }
 
-# Find the resource group to deploy into
-data "ibm_resource_group" "group" {
-  name = var.resource_group_name
+output "app_config_guid" {
+  description = "The unique GUID for the service instance (used by SDKs)."
+  value       = module.app_config.app_config_guid
+  sensitive   = true
 }
 
-# Use the official module to create the App Configuration instance
-module "app_config" {
-  source = "terraform-ibm-modules/app-configuration/ibm"
-  version = "1.2.0" # Lock in the version
-  
-  app_config_name   = var.service_name
-  app_config_plan   = "lite" # Hard-coded to the free plan
-  resource_group_id = data.ibm_resource_group.group.id
-  region            = var.region
-  app_config_tags   = ["feature-flags", "lite", "da"]
+output "app_config_region" {
+  description = "The region of the service instance (used by SDKs)."
+  value       = var.region
 }

@@ -1,6 +1,6 @@
-# 🚀 Feature Flag Control Center (Lite Plan)
+# 🚀 Feature Flag Control Center
 
-This deployable architecture gives you, the Product Manager, direct control over your application's features. It installs a free "Lite" plan service that acts as a central "on-off switch" dashboard.
+This deployable architecture gives you, the Product Manager, direct control over your application's features. It installs a **completely free** "Lite" plan service that acts as a central "on-off switch" dashboard.
 
 You can use this to:
 * **"Dark Launch"** a new feature to production (turned `OFF`) for internal testing.
@@ -18,36 +18,38 @@ This is a simple, two-part process for you and your developer.
 
 1.  **Deploy This Architecture:**
     * Click "Deploy" from the catalog page.
-    * Give your service a unique name (like `checkout-pm-controls`) and click **Deploy**.
+    * Give your **free** service a unique name (like `checkout-pm-controls`) and click **Deploy**.
 
-2.  **Get the "Keys" for Your Developer:**
+2.  **Get the Dashboard Link & Keys:**
     * After deployment is successful, go to the **Outputs** section.
-    * You will see two keys labeled **"Developer Key."**
+    * You will see all the information you need.
+    * The most important is the **"Clickable: Your Feature Flag Dashboard"** link.
 
-3.  **Share the Keys:**
-    * Copy these two values and send them to your developer.
+3.  **Share the Info:**
+    * Copy the values for the **Dashboard Link**, **Region**, and **GUID** and send them to your developer.
 
 #### Slack Message Template (Copy This!)
 
 **To:** `[Your Developer]`
-**Subject:** Feature Flag Keys
+**Subject:** Feature Flag Keys & Dashboard
 
-Hey! I've set up the new Feature Flag Control Center. Here are the two keys you need to connect the app to it:
+Hey! I've set up the new **free** Feature Flag Control Center. Here is all the info:
 
-* **Region:** `[Copy the value from the 'app_config_region' output here]`
-* **GUID:** `[Copy the value from the 'app_config_guid' output here]`
+* **Dashboard Link (for you & me):** `[Copy the value from the 'dashboard_url' output here]`
+* **Region (for your .env):** `[Copy the value from the 'app_config_region' output here]`
+* **GUID (for your .env):** `[Copy the value from the 'app_config_guid' output here]`
 
-Let me know once you've plugged these in. I'm ready to create our first flag!
+I'm clicking the dashboard link now to create our first flag. Let me know once you've plugged the Region and GUID into the app!
 
 ---
 
 ### Part 2: For the Developer (Their Steps)
 
-1.  **Receive the Keys:**
-    * Your developer will take the `Region` and `GUID` you sent them.
+1.  **Receive the Info:**
+    * Your developer will take the `Dashboard Link`, `Region`, and `GUID` you sent them.
 
 2.  **Install & Configure the SDK:**
-    * They will add the `ibm-appconfiguration-node-sdk` (or Java, Python, etc.) to your application's code and use those two keys to initialize it.
+    * They will add the `ibm-appconfiguration-node-sdk` (or Java, Python, etc.) to your application's code and use the **Region** and **GUID** keys to initialize it.
 
 3.  **"Guard" the New Feature:**
     * Your developer will wrap your new feature's code in a simple "if" statement that asks the service for permission.
@@ -65,4 +67,4 @@ Let me know once you've plugged these in. I'm ready to create our first flag!
 
 From this point on, **you no longer need to file a ticket or wait for a code deployment.**
 
-You, the Product Manager, can just go to your App Configuration dashboard, find the `enable-new-dashboard` flag, and **flip the toggle to `ON`**. The application will get the change in real-time, and your users will instantly see the new feature.
+You, the Product Manager, can just click that **`dashboard_url` link** anytime, find the `enable-new-dashboard` flag, and **flip the toggle to `ON`**. The application will get the change in real-time, and your users will instantly see the new feature.
