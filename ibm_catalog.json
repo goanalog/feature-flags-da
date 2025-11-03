@@ -14,6 +14,19 @@
         "pm",
         "agile"
       ],
+      "keywords": [
+        "product management",
+        "feature flag",
+        "a/b test",
+        "testing",
+        "analytics",
+        "user experience",
+        "conversion",
+        "integration",
+        "multivariate",
+        "test",
+        "telemetry"
+      ],
       "short_description": "Your team's *free* \"on-off switch\" for new features. Safely test, launch, and manage features in real-time on the free 'Lite' plan.",
       "long_description": "Want to launch new features faster, but worried about the risk? This deployable architecture gives you the power of **progressive delivery** at **no cost**. It deploys a **free 'Lite' plan** instance of the IBM Cloud App Configuration service, which provides a powerful dashboard for managing your application's features in real-time—**without needing a new code deployment for every change.**\n\nAs a Product Manager, this gives you direct control. This DA deploys the **free \"Lite\" plan** of the service. It's perfect for development, testing, internal applications, or getting started with feature flags at **no cost**.",
       "features": [
