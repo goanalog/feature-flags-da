@@ -1,0 +1,50 @@
+{
+  "products": [
+    {
+      "name": "feature-flag-service-lite",
+      "label": "Feature Flag Service (Lite)",
+      "product_kind": "solution",
+      "provider_name": "Community",
+      "tags": [
+        "lite",
+        "free",
+        "terraform",
+        "devops",
+        "feature-flags"
+      ],
+      "short_description": "Deploys a single, free 'Lite' plan instance of the IBM Cloud App Configuration service for feature flags.",
+      "long_description": "This deployable architecture provisions one instance of the App Configuration service on the 'Lite' plan. This service provides a full UI and SDKs (similar to LaunchDarkly) for managing feature flags, user segmentation, and controlled rollouts for your applications.",
+      "flavors": [
+        {
+          "name": "default",
+          "label": "Default",
+          "version": "1.0.0",
+          "architecture": {
+            "provision_type": "terraform_v1",
+            "configuration": [
+              {
+                "key": "service_name",
+                "type": "string",
+                "default_value": "my-feature-flag-service",
+                "description": "A unique name for your App Configuration service instance.",
+                "required": true
+              },
+              {
+                "key": "region",
+                "type": "string",
+                "default_value": "us-south",
+                "description": "The IBM Cloud region to deploy to."
+              },
+              {
+                "key": "resource_group_name",
+                "type": "string",
+                "default_value": "Default",
+                "description": "The name of an existing resource group."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
