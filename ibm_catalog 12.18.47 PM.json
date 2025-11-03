@@ -1,0 +1,157 @@
+{
+  "products": [
+    {
+      "name": "feature-flag-control-center",
+      "label": "Feature Flag Control Center",
+      "product_kind": "solution",
+      "provider_name": "Community",
+      "tags": [
+        "lite",
+        "free",
+        "no-cost",
+        "devops",
+        "feature-flags",
+        "pm",
+        "agile"
+      ],
+      "short_description": "Your team's \"on-off switch\" for new features. Choose the free Quickstart (free!) for dev/test or the Production plan for live apps.",
+      "long_description": "This DA deploys the IBM Cloud App Configuration service to give you real-time control over your application's features.\n\nAs a Product Manager, this gives you the power to safely test, launch, and 'kill switch' features without a new code deployment. \n\nChoose the flavor that's right for you:\n* **Quickstart (free!):** A 100% free 'Lite' plan. Perfect for development, testing, and internal applications.\n* **Production:** The paid 'Standard' plan for live applications. Enables a high volume of users, advanced features, and is fully supported.",
+      "features": [
+        {
+          "title": "✅ Two Plans Available",
+          "description": "Choose the 'Quickstart (free!)' plan for dev/test or the paid 'Production' plan for live apps."
+        },
+        {
+          "title": "Centralized PM Dashboard",
+          "description": "A simple, web-based UI for you to manage all your features. No code required for you to make a change."
+        },
+        {
+          "title": "Controlled Rollouts",
+          "description": "Safely test new features with a small percentage of users (e.g., \"roll out to 5% of users\") before a full launch."
+        },
+        {
+          "title": "Instant 'Kill Switch'",
+          "description": "Instantly turn off a problematic feature without waiting for a developer or a hotfix."
+        }
+      ],
+      "flavors": [
+        {
+          "name": "quickstart-free",
+          "label": "Quickstart (free!)",
+          "version": "1.0.0",
+          "working_directory": "flavor-quickstart",
+          "long_description": "A 100% free 'Lite' plan. Perfect for development, testing, and internal applications. Not intended for production use.",
+          "architecture": {
+            "provision_type": "terraform_v1",
+            "configuration": [
+              {
+                "key": "service_name",
+                "label": "Service Name (for your dashboard)",
+                "type": "string",
+                "default_value": "my-feature-flag-service-quickstart",
+                "description": "Give it a name related to your team or product, like 'checkout-pm-controls-dev'.",
+                "required": true
+              },
+              {
+                "key": "region",
+                "label": "Region (Deployment Location)",
+                "type": "string",
+                "default_value": "us-south",
+                "description": "Leave this as the default ('us-south') unless your development team tells you otherwise."
+              },
+              {
+                "key": "resource_group_name",
+                "label": "Resource Group (Account Folder)",
+                "type": "string",
+                "default_value": "Default",
+                "description": "You can safely leave this as 'Default'."
+              }
+            ],
+            "outputs": [
+              {
+                "key": "dashboard_url",
+                "label": "Clickable: Your Feature Flag Dashboard",
+                "description": "➡️ **Click this link.** This is your new dashboard to create and manage flags.",
+                "type": "url",
+                "primary": true
+              },
+              {
+                "key": "app_config_region",
+                "label": "Developer Key: Region",
+                "description": "✅ **Copy this for your developer.** This is the 'address' of the service."
+              },
+              {
+                "key": "app_config_guid",
+                "label": "Developer Key: GUID",
+                "description": "✅ **Copy this for your developer.** This is the unique 'password' for the service."
+              },
+              {
+                "key": "app_config_instance_name",
+                "label": "Your Dashboard Name (for reference)",
+                "description": "This is just for you. It's the name you chose, to help you find it in your resource list."
+              }
+            ]
+          }
+        },
+        {
+          "name": "production-standard",
+          "label": "Production",
+          "version": "1.0.0",
+          "working_directory": "flavor-production",
+          "long_description": "The paid 'Standard' plan for production apps. Enables a high volume of users, advanced features, and is fully supported. **This plan has a cost.**",
+          "architecture": {
+            "provision_type": "terraform_v1",
+            "configuration": [
+              {
+                "key": "service_name",
+                "label": "Service Name (for your dashboard)",
+                "type": "string",
+                "default_value": "my-feature-flag-service-prod",
+                "description": "Give it a name related to your team or product, like 'checkout-pm-controls-prod'.",
+                "required": true
+              },
+              {
+                "key": "region",
+                "label": "Region (Deployment Location)",
+                "type": "string",
+                "default_value": "us-south",
+                "description": "Leave this as the default ('us-south') unless your development team tells you otherwise."
+              },
+              {
+                "key": "resource_group_name",
+                "label": "Resource Group (Account Folder)",
+                "type": "string",
+                "default_value": "Default",
+                "description": "You can safely leave this as 'Default'."
+              }
+            ],
+            "outputs": [
+              {
+                "key": "dashboard_url",
+                "label": "Clickable: Your Feature Flag Dashboard",
+                "description": "➡️ **Click this link.** This is your new dashboard to create and manage flags.",
+                "type": "url",
+                "primary": true
+              },
+              {
+                "key": "app_config_region",
+                "label": "Developer Key: Region",
+                "description": "✅ **Copy this for your developer.** This is the 'address' of the service."
+              },
+              {
+                "key": "app_config_guid",
+                "label": "Developer Key: GUID",
+                "description": "✅ **Copy this for your developer.** This is the unique 'password' for the service."
+              },
+              {
+                "key": "app_config_instance_name",
+                "label": "Your Dashboard Name (for reference)",
+                "description": "This is just for you. It's the name you chose, to help you find it in your resource list."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
