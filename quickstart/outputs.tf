@@ -1,9 +1,14 @@
+# This block defines a local variable to build the CRN string cleanly.
+locals {
+  raw_crn = "crn:v1:bluemix:public:apprapp:${var.region}:a/${data.ibm_resource_group.group.account_id}:${module.app_config.app_config_guid}::"
+}
+
 output "dashboard_url" {
   description = "Click this link to go directly to your new Feature Flag dashboard."
   
-  # This version uses simple string interpolation, which avoids
-  # the conflict between format() and urlencode()
-  value = "https://cloud.ibm.com/services/apprapp/${urlencode("crn:v1:bluemix:public:apprapp:${var.region}:a/${data.ibm_resource_group.group.account_id}:${module.app_config.app_config_guid}::")}?paneId=manage"
+  # Now, we just encode the local variable. This is much cleaner
+  # and avoids the 'format' and nested 'interpolation' conflicts.
+  value = "https://cloud.ibm.com/services/apprapp/${urlencode(local.raw_crn)}?paneId=manage"
 }
 
 output "app_config_instance_name" {
