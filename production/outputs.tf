@@ -1,9 +1,23 @@
+# This block defines local variables to build and encode the CRN cleanly.
+locals {
+  # 1. Build the raw CRN string
+  # We get 'data.ibm_resource_group.group.account_id' from the data block in main.tf
+  raw_crn = "crn:v1:bluemix:public:apprapp:${var.region}:a/${data.ibm_resource_group.group.account_id}:${module.app_config.app_config_guid}::"
+  
+  # 2. URL-encode the raw string
+  encoded_crn = urlencode(local.raw_crn)
+}
+
 output "dashboard_url" {
   description = "Click this link to go directly to your new Feature Flag dashboard."
   
-  # This is the correct, direct path to the attribute
-  # from the module's 'resource_instance' output.
-  value       = module.app_config.resource_instance.dashboard_url
+  # 3. Safely insert the encoded string into the final URL template
+  #    using the 'format' function with '%s'. This avoids all
+  #    the string-parsing conflicts we've been hitting.
+  value = format(
+    "https://cloud.ibm.com/services/apprapp/%s?paneId=manage",
+    local.encoded_crn
+  )
 }
 
 output "app_config_instance_name" {
@@ -13,8 +27,8 @@ output "app_config_instance_name" {
 
 output "app_config_guid" {
   description = "The unique GUID for the service instance (used by SDKs)."
-  # This output is also on the resource_instance object.
-  value       = module.app_config.resource_instance.guid
+  # This is the original, correct path for this output.
+  value       = module.app_config.app_config_guid
   sensitive   = true
 }
 
