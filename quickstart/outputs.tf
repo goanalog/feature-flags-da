@@ -1,7 +1,8 @@
 output "dashboard_url" {
   description = "Click this link to go directly to your new Feature Flag dashboard."
+  # This is the new, correct URL format using 'apprapp'
   value = format(
-    "https://cloud.ibm.com/services/app-configuration/%s?region=%s",
+    "https://cloud.ibm.com/apprapp/%s/features?region=%s",
     module.app_config.app_config_guid,
     var.region
   )
